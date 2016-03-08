@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>函数调用模式和方法调用模式的不同</title>
+  <link rel="stylesheet" href="../base/base.css">
+</head>
+<body>
+
+  <script type="text/javascript" src="../assert.js"></script>
+  <script type="text/javascript" src="demo.js"></script>
+
+  <article class="post">
+    <h3>[结论]</h3>
+    <p>函数式的调用模式的this为window<br>方法式的调用模式为方法所属的对象</p>
+    <p>ninja1和ninja2的skulk属性引用的是同一个函数creep<br>但是当creep执行的时候，产生的this却是各自不同的。<br>所以说函数的上下文的产生，并不由函数的定义来决定，<br>而是由函数的调用来决定。</p>
+  </article>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>函数重载</title>
+  <link rel="stylesheet" href="../base/base.css">
+</head>
+<body>
+
+  <script type="text/javascript" src="../assert.js"></script>
+  <script type="text/javascript" src="demo.js"></script>
+  <article class="post">
+    <h3>{1-2}函数内部通过判断参数的个数来实现逻辑划分</h3>
+    <p>利用arrays的slice()方法来忽略arguments的第一个参数<br>利用Array的slice()方法，让arguments看起来也是一个array，尽管它自身不是</p>
+    <h3>{3}划分参数</h3>
+    <p>这里划分为第一个和剩余的参数</p>
+    <h3>{4-7}length属性告诉我们这个函数是如何被定义</h3>
+    <ol>
+      <li>通过函数length属性，我们可以知道他的显性参数的数目</li>
+      <li>通过arguments的length属性，我们可以知道调用的时候真正传递进去的参数个数。</li>
+    </ol>
+  </article>
+
+</body>
+</html>

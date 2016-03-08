@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>函数声明</title>
+  <link rel="stylesheet" href="../base/base.css">
+</head>
+<body>
+
+  <script type="text/javascript" src="../assert.js"></script>
+  <script type="text/javascript" src="demo.js"></script>
+
+  <article class="post">
+    <h3>{1-6}作用域和函数</h3>
+    <p>由function进行声明，而不是代码块<br>声明的作用域创建于代码块，但不是终结于代码块。</p>
+    <h3>对于不同声明，会有细微差别</h3>
+    <ol>
+      <li>变量声明的作用域开始于声明的地方，结束于所在函数的结尾，与代码嵌套无关。</li>
+      <li>命名函数的作用域是指声明该函数的整个函数范围，与代码嵌套无关(机制提升)。</li>
+      <li>对于作用域声明，全局上下文就像一个包含页面所有代码的超大型函数</li>
+    </ol>
+  </article>
+</body>
+</html>

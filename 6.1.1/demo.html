@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>实例化和原型</title>
+  <link rel="stylesheet" href="../base/base.css">
+</head>
+<body>
+
+  <script type="text/javascript" src="../assert.js"></script>
+  <script type="text/javascript" src="demo.js"></script>
+
+  <article class="post">
+    <h3>JavaScript 原型的主要用途就是使用一种类风格的面向对象和继承技术进行编码。</h3>
+    <h3>{1-2}原型作为对象概览</h3>
+    <p>函数作为构造器进行调用时，函数的原型是新对象的一个概览。<br>原型可以让我们预定义属性，包括方法，这些属性和方法会自动附加到新对象上</p>
+    <p>附加(attached)而不是添加(added)</p>
+    <h3>{3}实例属性(还可以在构造器函数内通过this参数初始化值)<br>初始化操作的优先级：</h3>
+    <ol>
+      <li>通过原型给对象实例添加的属性(低)</li>
+      <li>在构造器函数内给对象实例添加的属性(高，this上下文指向的是实例自身)</li>
+    </ol>
+    <h3>{4}协调引用</h3>
+    <ol>
+      <li>检查本身是否拥有该属性，有则返回，没有则2</li>
+      <li>查看对象的原型(prototype)，检查是否有所要的属性，有则返回，没有则3</li>
+      <li>返回undefined</li>
+    </ol>
+    <p>对象不仅与其构造器有关，还与构造器所创建的对象的原型相关</p>
+    <p>每个对象都有一个名为constructor的隐式属性，该属性引用的是创建该对象的构造器。由于prototype是构造器的一个属性，所以每个对象都有一种方式可以找到自己的原型。</p>
+  </article>
+</body>
+</html>

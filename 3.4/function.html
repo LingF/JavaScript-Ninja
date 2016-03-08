@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>函数总结</title>
+  <link rel="stylesheet" href="../base/base.css">
+</head>
+<body>
+
+  <script type="text/javascript" src="../assert.js"></script>
+  <script type="text/javascript" src="demo.js"></script>
+
+  <article class="post">
+    <h3>函数</h3>
+    <ol>
+      <li>
+        函数是一级对象(functions are first-class objects)
+        <ul>
+          <li>通过字面量创建</li>
+          <li>赋予给一个变量</li>
+          <li>作为参数传递</li>
+          <li>作为另一个函数的返回值</li>
+          <li>拥有属性和方法</li>
+        </ul>
+      </li>
+      <li>函数不同于其他对象的一个超级能力就是它可以被调用</li>
+      <li>函数通过字面量来创建，可以没有函数名</li>
+      <li>
+        函数的域的定义再JavaScript中相比起其他语言有些特别
+        <ul>
+          <li>函数内部变量的有效域是定义它的地方到函数结束</li>
+          <li>内部函数在包裹它的函数内是处处有效的，甚至在定义的前面也有效</li>
+        </ul>
+      </li>
+      <li>
+        一个函数的参数列表和它实际的argument列表的长度可以不同
+        <ul>
+          <li>如果没有赋予的参数，那么这个参数就是undefined</li>
+          <li>超出预设长度的arguments不会绑定到任何参数上</li>
+        </ul>
+      </li>
+      <li>
+        所有函数被调用的时候，都会隐性的传入两个参数(arguments，this)
+        <ul>
+          <li>arguments：真正传入的arguments集合</li>
+          <li>this：函数上下文的载体</li>
+        </ul>
+      </li>
+      <li>
+        函数可以有多种调用方式，调用的方式决定了函数上下文的不同
+        <ul>
+          <li>最普通的函数调用模式：函数上下文是window</li>
+          <li>方法调用模式：函数上下文是拥有这个方法的对象</li>
+          <li>构造器调用模式：函数上下文是新生成的对象</li>
+          <li>apply() or call()：函数上下文可以是我们指定的任何对象</li>
+        </ul>
+      </li>
+    </ol>
+  </article>
+</body>
+</html>

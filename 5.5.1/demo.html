@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>函数的重写(Overriding function behavior)</title>
+  <link rel="stylesheet" href="../base/base.css">
+</head>
+<body>
+
+  <script type="text/javascript" src="../assert.js"></script>
+  <script type="text/javascript" src="demo.js"></script>
+  <article class="post">
+    <h3>{1}函数的记忆能力(Memoization)</h3>
+    <p>结果是通过.apply()来调用父函数来完成，然后直接将结果存储在了父函数的属性_values中<br>计算出结果，保存结果，返回结果。所有这些都是在一个逻辑代码块中完成</p>
+    <h3>缺点</h3>
+    <p>调用isPrime()的时候还必须记得要调用.memoized()方法，来实现memoization</p>
+    <h3>{2}通过闭包解决</h3>
+    <p>在memozie()中，利用memoized()重新包裹了原始函数(original function)。<br>memoize返回的函数就永远会是具备了momoized能力的函数(#2)<br>在momozie()这个方法中，我们构建了一个闭包，在这个闭包中通过fn这个变量拷贝了原始函数：isPrime函数(通过获取其上下文 ＃1)</p>
+    <h3>通用的技巧</h3>
+    <p>每个函数都拥有自己的上下文，所以上下文从来都不是闭包的一部分。<br>但是我们可以利用一个变量来关联原始函数的上下文的值，这样就等同于函数上下文(isPrime context)成为了闭包的一部分。<br>由于原始函数已经成为了闭包的一部分，那么闭包自然可以在返回的新函数中，随意的操作原始函数(isPrime)，让其具备记忆能力.</p>
+  </article>
+</body>
+</html>

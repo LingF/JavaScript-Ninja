@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>即时函数(Immediate functions)</title>
+  <link rel="stylesheet" href="../base/base.css">
+</head>
+<body>
+
+  <script type="text/javascript" src="../assert.js"></script>
+  <script type="text/javascript" src="demo.js"></script>
+
+  <article class="post">
+    <h3>类库包装</h3>
+    <ol>
+      <li>方法1
+        <ul>
+          <li>首先jQuery构造器(作为一个匿名函数)赋值给了window.jQuery，这样就将其作为一个全局变量。</li>
+          <li>其次将其赋值给了一个局部变量jQuery，强制将其保持在即时函数的作用域内。</li>
+        </ul>
+      <li>方法2
+        <ul>
+          <li>匿名函数作用域中定义了一个jQuery函数</li>
+          <li>将其返回并赋值给一个全局变量，名称同样是jQuery。</li>
+          <li>通常在只输出一个变量的时候，优先使用这种技巧，这样看起来更能体现出赋值的意义。</li>
+        </ul>
+      </li>
+    </ol>
+  </article>
+</body>
+</html>

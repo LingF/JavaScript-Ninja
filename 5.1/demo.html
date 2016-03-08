@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>闭包</title>
+  <link rel="stylesheet" href="../base/base.css">
+</head>
+<body>
+
+  <script type="text/javascript" src="../assert.js"></script>
+  <script type="text/javascript" src="demo.js"></script>
+  <article class="post">
+    <h3>{1}没有意识到你在创建闭包(closure)</h3>
+    <p>out value和outer function的作用域是全局域(global scope)，而全局域是永远不会消失<br>另外就算是这个function可以访问outer value，这个特点也没有实用的价值</p>
+    <h3>{2-3}加上一点料</h3>
+    <ol>
+      <li>inner function可以访问outerValue，因为outerValue属于全局域，</li>
+      <li>由于js的特性，在正常情况下，全局域中我们是无法访问到innerValue的，但是通过将innerFunction赋给later变量，later就称为了域之间的桥梁，我们自然在全局域可以访问到innerValue。原理就是闭包(closure)。</li>
+    </ol>
+    <h3>{4-8}闭包概念</h3>
+    <ol>
+      <li>function的参数也被包含在闭包之中</li>
+      <li>所有的外部变量都属于闭包可访问的范围（外部域），包括那些在闭包后面创建出来的变量。</li>
+      <li>在同一个域中，不可以访问后面才创建的变量</li>
+    </ol>
+  </article>
+</body>
+</html>
