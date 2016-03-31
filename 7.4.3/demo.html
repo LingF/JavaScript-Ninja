@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>7.43 捕获的引用</title>
+  <link rel="stylesheet" href="../base/base.css">
+</head>
+<body>
+
+  <script type="text/javascript" src="../assert.js"></script>
+  <script type="text/javascript" src="demo.js"></script>
+
+  <article class="post">
+    <h3>有两种方法引用捕获到的匹配结果</h3>
+    <ol>
+      <li>自身匹配</li>
+      <li>替换字符串（在某些适用的情况下）</li>
+    </ol>
+    <h3>{1-8}自身匹配</h3>
+    <p>使用 \1 引用了表达式中的第一个捕获（这里是标签名称）<br>我们可以匹配相应的结束标签，反向引用到匹配的捕获结果。（这里假设没有嵌入任何同名标签）</p>
+    <h3>{9}replace() 方法替换字符串</h3>
+    <p>使用$1、$2、$3语法表示每个捕获的数字。<br>首先获取的捕获值（这里是大写字母F），在替换字符串中进行引用（通过$1）<br>这种方法允许我们指定一个替换字符串，即便是在运行之前不知道它的值。——强大武器</p>
+    <h3>注意</h3>
+    <p>由于捕获和表达式分组都使用了小括号，则一般会将小括号即视为分组，又视为捕获。所以有时会导致捕获比我们预期的多。</p>
+  </article>
+</body>
+</html>

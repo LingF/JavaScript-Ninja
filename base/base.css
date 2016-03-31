@@ -23,7 +23,7 @@ ul {
 li >ol {
   list-style-type: lower-alpha;
 }
-article p, article h3, article ol {
+article p, article h3, article ol, article ul, table {
   max-width: 600px;
   margin: 0 auto;
   margin-top: 20px;
@@ -33,4 +33,18 @@ article p, article h3, article ol {
 }
 article.post p, article.post ol {
   -webkit-font-smoothing: antialiased;
+}
+table {
+  border-collapse: collapse;
+  border: 2px solid #4d4d4d;
+}
+table thead {
+  text-align: center;
+  background-color: #ccc;
+  font-weight: bolder;
+}
+table td {
+  padding: 5px 10px;
+  border-bottom: 1px solid #4d4d4d;
+  border-right: 2px solid #4d4d4d;
 }

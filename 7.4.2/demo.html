@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>用全局表达式进行匹配</title>
+  <link rel="stylesheet" href="../base/base.css">
+</head>
+<body>
+
+  <script type="text/javascript" src="../assert.js"></script>
+  <script type="text/javascript" src="demo.js"></script>
+
+  <article class="post">
+    <h3>区别</h3>
+    <p>{1-4}局部匹配：只有一个实例被匹配，并且该匹配的捕获结果也返回来了<br>{5-10}全局匹配：返回的是结果列表。</p>
+    <h3>{11-17}exec()方法</h3>
+    <p>保存了上一次调用的状态，后续调用就继续下去，直到全局匹配。</p>
+  </article>
+</body>
+</html>

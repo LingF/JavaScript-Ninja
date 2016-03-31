@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>捕获匹配的片段</title>
+  <link rel="stylesheet" href="../base/base.css">
+</head>
+<body>
+  <div id="opacity" style="opacity:0.5;filter:alpha(opacity=50);">opacity:0.5;filter:alpha(opacity=50);</div>
+
+  <script type="text/javascript" src="../assert.js"></script>
+  <script type="text/javascript" src="demo.js"></script>
+
+  <article class="post">
+    <h3>正则表达式的实用性表现在捕获已匹配的结果上</h3>
+    <p>例如IE8或更早版本浏览器设置透明度：<br> filter:alpha(opacity=50)</p>
+    <ol>
+      <li>首先判断是否有 filter 属性需要解析</li>
+      <li>没有则返回 opacity 属性值</li>
+      <li>存在则需要再确认是否包含 opacity 字符串，用 indexOf 判断</li>
+      <li>match 方法匹配成功返回一个捕获数值的数组，失败则返回 null</li>
+      <li>match 返回：[0] filter:alpha(opacity=50)，[1] 50</li>
+    </ol>
+    <p>捕获是由正则表达式中的小括号所定义的。透明值应该在数组[1]上，这是我们正则中的捕获</p>
+  </article>
+</body>
+</html>

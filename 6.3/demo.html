@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>编写类风格的代码</title>
+  <link rel="stylesheet" href="../base/base.css">
+</head>
+<body>
+
+  <script type="text/javascript" src="../assert.js"></script>
+  <script type="text/javascript" src="demo.js"></script>
+
+  <article class="post">
+    <h3>经典继承语法</h3>
+    <p>尽管JavaScript本身不支持类继承，但我们希望它有如下特性：</p>
+    <ul>
+      <li>一套可以构建新构造器函数和原型的轻量级系统。</li>
+      <li>一种简单的方式来执行原型继承。</li>
+      <li>一种可以访问被函数原型所覆盖的方法的途径。</li>
+    </ul>
+    <ol>
+      <li>函数序列化（function serialization）：简单接收一个函数，返回该函数的源码文本。</li>
+      <li>子类的实例化
+        <p>之前采用创建父类的实例，赋值给子类的原型。<br>但是我们只想从instanceof运算符中收益，而不是实例化父类。<br>为了抵消这一点，我们定义了initializing，每当想使用原型实例化一个类时，将他设置为true。
+        </p>
+        <p>确保不再实例化模式下进行构建实例，运行或跳过init()方法</p>
+      </li>
+      <li>保留父级方法
+        <p>有时想完全替换，但有时只想增加它。<br>创建一个名为_super的临时方法，只能从子类方法内部访问父类中的原有方法。</p>
+        <p>创建一个超类的实例作为原型（跳过init()方法）<br>如果不在意父类函数，合并很简单：<br>
+          <code>for (var name in properties) proto[name] = properties[name];</code><br>但是我们需要在子类通过_super调用父类函数，将子类函数和父类函数的引用进行包装。<br>但在这之前，我们要检测将被包装的子类函数：
+          <ul>
+            <li>子类属性是否是一个函数<br>
+              <code>typeof properties[name] == 'function' &&</code>
+            </li>
+            <li>超类属性是否是一个函数<br>
+              <code>typeof _super[name] == 'function' &&</code>
+            </li>
+            <li>子类函数是否包含一个_super()引用
+              <code>superPattern.test(properties[name])</code>
+            </li>
+          </ul>
+        </p>
+        <p>若必须包装，及时函数的结果作为子类的属性<br>及时函数创建并返回了一个新函数，该新函数包装并执行了子类的函数，同时可以通过_super属性访问父类函数。</p>
+      </li>
+    </ol>
+  </article>
+</body>
+</html>

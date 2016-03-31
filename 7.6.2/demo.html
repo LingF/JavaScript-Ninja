@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>7.6.2 匹配换行符</title>
+  <link rel="stylesheet" href="../base/base.css">
+</head>
+<body>
+
+  <script type="text/javascript" src="../assert.js"></script>
+  <script type="text/javascript" src="demo.js"></script>
+
+  <article class="post">
+    <h3>匹配所有的字符，包括换行符</h3>
+    <ul>
+      <li>{1}换行符不会被(.)操作符匹配到</li>
+      <li>{2}匹配任何不是空白字符的字符，以及匹配任意一个空白字符。所以结果就是匹配所有的字符。</li>
+      <li>{3}用点(.)匹配除换行符以外的所有内容，以及所有是空白的字符，包括换行符。结果就是所有字符</li>
+    </ul>
+    <p>推荐方案2</p>
+  </article>
+</body>
+</html>

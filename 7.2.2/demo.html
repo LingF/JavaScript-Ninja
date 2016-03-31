@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>正则表达式</title>
+  <link rel="stylesheet" href="../base/base.css">
+</head>
+<body>
+
+  <script type="text/javascript" src="../assert.js"></script>
+  <script type="text/javascript" src="demo.js"></script>
+
+  <article class="post">
+    <h3>匹配一类字符</h3>
+    <p>不想匹配一个特定的字符，而是想匹配一个有限字符集中的某一个字符：[abc]</p>
+    <p>制定一个范围："a" 和 "m" 之间的任何一个小写字母：[abcdefghijklm]<br>可以更简洁：[a-m]</p>
+    <h3>转义</h3>
+    <p>需要匹配[、$、^或其他这样的特殊字符，使用反斜杠进行转义</p>
+    <h3>匹配开始与匹配结束</h3>
+    <p>^：如果作为正则表达式的第一个字符，则表示要从字符串的开头进行匹配。<br>/^test/：匹配以 "test" 开头的字符串</p>
+    <p>$：表示该模式必须出现在字符串的结尾 /test$/</p>
+    <p>/^test$/必须包含整个候选字符串</p>
+
+    <h3>重复出现</h3>
+    <p>四个"a": /aaaa/</p>
+    <ol>
+      <li>字符串后加 "?"：可选（一次或无）
+      <p>/t?est/：test、est</p>
+      </li>
+      <li>+：一次或多次
+        <p>/t+est/：test、ttest、tttest</p>
+      </li>
+      <li>
+        *：无或多次
+        <p>/t*est/：test、ttest、tttest、est</p>
+      </li>
+      <li>
+        字符后面加{}：指定一个数字表示重复次数
+        <p>/a{4}/</p>
+      </li>
+      <li>
+        {}指定两个数字：表示重复次数区间
+        <p>/a{4, 10}/：匹配任何含有连续4个至10个 "a" 字符的字符串</p>
+      </li>
+      <li>
+        次数区间第二个值可选（但要保留逗号），表示一个开区间
+        <p>/a{4,}/：连续4个或多余4个 "a" 字符的字符串</p>
+      </li>
+    </ol>
+    <p>这些重复操作符可以是贪婪的 (greedy) 或非贪婪的 (nongreedy)。默认是贪婪的：它们匹配所有的字符组合。在操作符后面加一个?，可以让该表达式编程成为非贪婪的：进行最小限度的匹配。<br>aaa：/a+/匹配所有这3个字符，/a+?/则只匹配一个 a 字符，因为一个 a 字符就可以满足 a+</p>
+    <h3>预定义字符类</h3>
+    <table>
+      <thead>
+        <tr><td width="30%">预定义术语</td><td width="70%">匹配内容</td></tr>
+      </thead>
+      <tbody>
+        <tr><td>\t</td><td>水平制表符</td></tr>
+        <tr><td>\b</td><td>空格</td></tr>
+        <tr><td>\v</td><td>垂直制表符</td></tr>
+        <tr><td>\f</td><td>换页符</td></tr>
+        <tr><td>\r</td><td>回车</td></tr>
+        <tr><td>\n</td><td>换行符</td></tr>
+        <tr><td>\cA:\cZ</td><td>控制符，例如：\cM 匹配一个 Control-M</td></tr>
+        <tr><td>\x0000:\xFFFF</td><td>十六进制Unicode码</td></tr>
+        <tr><td>\x00:\xFF</td><td>十六进制ASCII码</td></tr>
+        <tr><td>.</td><td>匹配除了新行（\n）之外的任意字符</td></tr>
+        <tr><td>\d</td><td>匹配任意数字，等价于[0-9]</td></tr>
+        <tr><td>\D</td><td>匹配任意非数字，等价于[^0-9]</td></tr>
+        <tr><td>\w</td><td>匹配包括下划线的任意单词字符，等价于[A-Za-z0-9]</td></tr>
+        <tr><td>\W</td><td>匹配任何非单词字符，等价于[^A-Za-z0-9]</td></tr>
+        <tr><td>\s</td><td>匹配任何空白字符，包括空格、制表符、换页符等</td></tr>
+        <tr><td>\S</td><td>匹配任何非空白字符</td></tr>
+        <tr><td>\b</td><td>匹配单词边界</td></tr>
+        <tr><td>\B</td><td>匹配非单词边界</td></tr>
+      </tbody>
+    </table>
+    <h3>分组</h3>
+    <p>使用小括号，将操作符用于一组术语<br>/(ab)+/：匹配一个或多个连续出现的子字符串 "ab"</p>
+    <h3>或操作符（OR）</h3>
+    <p>用竖线（|）字符表示或者的关系<br>/a|b/：匹配 "a" 或 "b" 字符<br>/(ab)+|(cd)+/：匹配出现一次或多次的 "ab" 或 "cd"</p>
+    <h3>反向引用</h3>
+    <p>在反斜杠后面加一个要引用的捕获数量，从1开始<br>/^([dtn])a\1/：任意一个以 "d" "t" 或 "n" 开头，且后面跟着一个 a 字符，并且再后面跟着的是和第一个捕获相同字符的字符串。<br>/<(\w+)>(.+)<\/\1>/：匹配像 "&lt;strong&gt;whatever&lt;/strong&gt;" 这样的简单元素</p>
+  </article>
+</body>
+</html>

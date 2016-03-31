@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>7.4.4 没有捕获的分组</title>
+  <link rel="stylesheet" href="../base/base.css">
+</head>
+<body>
+
+  <script type="text/javascript" src="../assert.js"></script>
+  <script type="text/javascript" src="demo.js"></script>
+
+  <article class="post">
+    <h3>?:标记：被动子表达式</h3>
+    <p>只会为外层的括号创建捕获，内层括号被转换为一个被动子表达式。<br>不需要捕获的时候应该尽可能使用非捕获（被动）分组。</p>
+    <h3>匹配 ninja-ninja-sword</h3>
+    <ul>
+      <li>{1-2}用 /((ninja-)+)sword/</li>
+      <li>{3-4}用 /((?:ninja-)+)sword/</li>
+    </ul>
+  </article>
+</body>
+</html>

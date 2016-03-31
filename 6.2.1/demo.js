@@ -6,7 +6,7 @@ Object.prototype.keys = function() {
 
 var obj = {a: 1, b: 2, c: 3};
 assert(obj.keys().length == 3, 'There are three properties in this object');
-
+assert(obj.keys().length == 4, 'There are four!')
 
 
 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>7.5 利用函数进行替换</title>
+  <link rel="stylesheet" href="../base/base.css">
+</head>
+<body>
+
+  <script type="text/javascript" src="../assert.js"></script>
+  <script type="text/javascript" src="demo.js"></script>
+
+  <article class="post">
+    <h3>{1}replace()接收一个函数作为替换值</h3>
+    <p>每个匹配都会调用该函数并带有一串参数列表：</p>
+    <ul>
+      <li>匹配的完整文本</li>
+      <li>匹配的捕获，一个捕获对应一个参数</li>
+      <li>匹配字符在源字符串中的索引</li>
+      <li>源字符串</li>
+    </ul>
+
+    <h3>{2}压缩查询字符串：foo=1&foo=2&blah=a&blah=b&foo=3</h3>
+    <p>在源字符串上调用 replace() 方法，传入匹配键值对的正则，并捕获键和值。用一个对象保存源字符串中匹配的键值对（key/value）。返回一个空字符串。<br>遍历对象，将结果聚合到数组中，最后使用&分隔符合并成一个字符串：foo=1,2,3&blah=a,b</p>
+  </article>
+</body>
+</html>
